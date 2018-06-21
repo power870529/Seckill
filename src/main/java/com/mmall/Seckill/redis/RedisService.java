@@ -42,7 +42,6 @@ public class RedisService {
             } else {
                 jedis.setex(realKey, seconds, string);
             }
-            jedis.set(realKey, string);
             return true;
         } finally {
             returnToPool(jedis);
