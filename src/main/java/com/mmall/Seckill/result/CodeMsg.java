@@ -23,6 +23,8 @@ public class CodeMsg {
     // 订单模块 500400
 
     // 秒杀模块 500500
+    public static CodeMsg MIAO_SHA_OVER = new CodeMsg(500500,"商品已被秒杀完");
+    public static CodeMsg MIAO_SHA_FAIL = new CodeMsg(500500,"秒杀失败");
 
     private CodeMsg(int code, String message) {
         this.code = code;
@@ -43,8 +45,8 @@ public class CodeMsg {
         return new CodeMsg(code, message);
     }
 
-    @Override
-    public String toString() {
-        return "CodeMsg [code=" + code + ", msg=" + message + "]";
-    }
+//    @Override
+//    public String toString() {
+//        return "CodeMsg [code=" + code + ", msg=" + message + "]";
+//    }
 }
