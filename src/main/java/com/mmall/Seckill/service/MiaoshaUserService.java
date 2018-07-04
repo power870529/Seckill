@@ -28,7 +28,19 @@ public class MiaoshaUserService {
     RedisService redisService;
 
     public MiaoshaUser getById(long id) {
-        return miaoshaUserDao.getById(id);
+        // 读缓存
+        MiaoshaUser user = redisService.get(MiaoshaUserKey.getById, "" + id, MiaoshaUser.class);
+        if(user != null) {
+            return user;
+        }
+
+        // 读取数据库
+        user = miaoshaUserDao.getById(id);
+        // 写入缓存
+        if (user != null) {
+            redisService.set(MiaoshaUserKey.getById, "" + id, user);
+        }
+        return user;
     }
 
 

@@ -21,10 +21,12 @@ public class CodeMsg {
     // 商品模块 500300
 
     // 订单模块 500400
+    public static CodeMsg ORDER_NOT_EXIST = new CodeMsg(500400, "订单不存在");
 
     // 秒杀模块 500500
     public static CodeMsg MIAO_SHA_OVER = new CodeMsg(500500,"商品已被秒杀完");
-    public static CodeMsg MIAO_SHA_FAIL = new CodeMsg(500500,"秒杀失败");
+    public static CodeMsg MIAO_SHA_FAIL = new CodeMsg(500501,"秒杀失败");
+    public static CodeMsg REPEATE_MIAOSHA = new CodeMsg(500502,"不允许重复秒杀");
 
     private CodeMsg(int code, String message) {
         this.code = code;
